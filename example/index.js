@@ -1,14 +1,14 @@
-var crudlet = require("crudlet");
+var mesh = require("mesh");
 var webrtc  = require("..");
 
 var db = webrtc({ 
   key: '8oi9boiedfeqm2t9'
 });
 
-crudlet.run(db, "tail").on("data", function(operation) {
+mesh.run(db, "tail").on("data", function(operation) {
   console.log("remote operation:", operation);
 });
 
-global.crudlet = crudlet;
+global.mesh = mesh;
 global.db = db;
-global.stream = crudlet.stream(db);
+global.stream = mesh.stream(db);

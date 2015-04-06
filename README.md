@@ -1,17 +1,17 @@
 ```javascript
-var crudlet     = require("crudlet");
-var localStore  = require("crudlet-local-storage");
-var webrtc      = require("crudlet-webrtc");
+var mesh     = require("mesh");
+var localStore  = require("mesh-local-storage");
+var webrtc      = require("mesh-webrtc");
 
 // get key here: http://peerjs.com/
 var webRtcDb = webrtc({ key: "peer-id" });
-var db = crudlet.parallel(localStore(), webRtcDb);
+var db = mesh.parallel(localStore(), webRtcDb);
 
 webRtcDb.peer.connect("peerId");
 
-crudlet.run(db, "tail").on("data", function(operation) {
+mesh.run(db, "tail").on("data", function(operation) {
   
 });
 
-crudlet.stream(db).write(crudlet.operation("insert", {data: "blarg" }));
+mesh.stream(db).write(mesh.operation("insert", {data: "blarg" }));
 ```
