@@ -1,8 +1,9 @@
 {
   "name": "mesh-webrtc",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "local storage adapter (offline-mode) for mesh",
   "main": "./lib/index.js",
+  "keywords": ["meshjs"],
   "scripts": {
     "test": "gulp lint test-coveralls"
   },
